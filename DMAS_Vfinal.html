@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module DMAS_Vfinal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>DMAS_Vfinal</strong></big></big> (version 1.4.0)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cuser%5Conedrive%20-%20bournemouth%20university%5Cuni%5Cyear%201%5Csemester%202%5Ctechnical%20arts%20production%5Cprojects%5Cpython%20project%5Cdavid_owairu_scripting%5Csrc%5Cdmas_vfinal.py">c:\users\user\onedrive - bournemouth university\uni\year 1\semester 2\technical arts production\projects\python project\david_owairu_scripting\src\dmas_vfinal.py</a></font></td></tr></table>
+    <p><tt>David&nbsp;Magical&nbsp;Animation&nbsp;System:<br>
+&nbsp;<br>
+This&nbsp;program&nbsp;is&nbsp;designed&nbsp;to&nbsp;create&nbsp;procedural&nbsp;animations&nbsp;using&nbsp;different&nbsp;simple&nbsp;algorithms.<br>
+it&nbsp;takes&nbsp;an&nbsp;object&nbsp;or&nbsp;group&nbsp;of&nbsp;objects&nbsp;as&nbsp;input&nbsp;and&nbsp;applies&nbsp;a&nbsp;selected&nbsp;animation&nbsp;onto&nbsp;them.&nbsp;<br>
+The&nbsp;animations&nbsp;can&nbsp;also&nbsp;be&nbsp;stacked&nbsp;so&nbsp;that&nbsp;a&nbsp;user&nbsp;can&nbsp;perform&nbsp;multiuple&nbsp;actions&nbsp;on&nbsp;one&nbsp;or&nbsp;multiple&nbsp;objects</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-AnimManager"><strong>AnimManager</strong></a>(wandPrecision, curveName, wandStartFrame, wandEndFrame, wandCtrl, wand, beamEndFrame, animateWand, animateBeam, numOfParticlesControl, gravityControl, color1, color2, objParticles, random, animOffset1, animOffset2, startFrame1, endFrame1, scaleFactor, projectionSize, spacing1, animated1, startFrame2, endFrame2, floatPercentage, height, spacing2, float, animated2, startFrame3, endFrame3, spacing3, animated3, *pArgs)</dt><dd><tt>This&nbsp;funtion&nbsp;is&nbsp;resposible&nbsp;for&nbsp;collecting&nbsp;all&nbsp;the&nbsp;values&nbsp;from&nbsp;the&nbsp;UI<br>
+and&nbsp;running&nbsp;all&nbsp;the&nbsp;other&nbsp;funtions&nbsp;in&nbsp;the&nbsp;correct&nbsp;order&nbsp;and&nbsp;with&nbsp;the&nbsp;<br>
+necesary&nbsp;variables:<br>
+&nbsp;<br>
+-&nbsp;wandPrecision:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;level&nbsp;of&nbsp;detail&nbsp;that&nbsp;the&nbsp;wand&nbsp;follows&nbsp;the&nbsp;curve.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+-&nbsp;curveName:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;curve&nbsp;being&nbsp;used&nbsp;for&nbsp;wand&nbsp;animtion.<br>
+-&nbsp;wandStartFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;animation.<br>
+-&nbsp;wandEndFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;frame&nbsp;of&nbsp;animation.<br>
+-&nbsp;wandCtrl:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rig&nbsp;control&nbsp;for&nbsp;the&nbsp;wand.<br>
+-&nbsp;wand:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wand&nbsp;we&nbsp;are&nbsp;animating.<br>
+-&nbsp;beamEndFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;frame&nbsp;of&nbsp;Beam&nbsp;animation.<br>
+-&nbsp;animateWand:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flag&nbsp;for&nbsp;wether&nbsp;Wand&nbsp;will&nbsp;be&nbsp;animated.<br>
+-&nbsp;animateBeam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flag&nbsp;for&nbsp;wether&nbsp;Beam&nbsp;will&nbsp;be&nbsp;animated.<br>
+-&nbsp;numOfParticlesControl:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;particles&nbsp;for&nbsp;the&nbsp;system&nbsp;to&nbsp;generate&nbsp;persecond.<br>
+-&nbsp;gravityControl:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gravity&nbsp;of&nbsp;the&nbsp;nucleus&nbsp;affecting&nbsp;the&nbsp;particles.<br>
+-&nbsp;color1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;color&nbsp;of&nbsp;the&nbsp;gradient.<br>
+-&nbsp;color2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second&nbsp;color&nbsp;of&nbsp;the&nbsp;gradient.<br>
+-&nbsp;objParticles:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flag&nbsp;for&nbsp;wether&nbsp;particles&nbsp;will&nbsp;be&nbsp;used&nbsp;or&nbsp;not&nbsp;on&nbsp;objects.<br>
+-&nbsp;random:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flag&nbsp;for&nbsp;wether&nbsp;random&nbsp;offset&nbsp;will&nbsp;be&nbsp;used&nbsp;or&nbsp;not.<br>
+-&nbsp;animOffset1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lower&nbsp;range&nbsp;of&nbsp;random&nbsp;offset,&nbsp;but&nbsp;also&nbsp;main&nbsp;offset&nbsp;if&nbsp;random&nbsp;i&nbsp;not&nbsp;chosen.<br>
+-&nbsp;animOffset2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upper&nbsp;range&nbsp;of&nbsp;random&nbsp;offset.<br>
+-&nbsp;startFrame1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;ShrinkGrow.<br>
+-&nbsp;endFrame1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;frame&nbsp;of&nbsp;ShrinkGrow.<br>
+-&nbsp;scaleFactor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;original&nbsp;object&nbsp;is&nbsp;multiplied&nbsp;by&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+-&nbsp;projectionSize:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;of&nbsp;the&nbsp;projection&nbsp;effect.<br>
+-&nbsp;spacing1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;frames&nbsp;between&nbsp;each&nbsp;keyframe.<br>
+-&nbsp;animated1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flag&nbsp;for&nbsp;wether&nbsp;ShrinkGrow&nbsp;will&nbsp;be&nbsp;animated.<br>
+-&nbsp;startFrame2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;levitation.<br>
+-&nbsp;endFrame2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;frame&nbsp;of&nbsp;levitation.<br>
+-&nbsp;floatPercentage:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;percentage&nbsp;of&nbsp;frames&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;floating.<br>
+-&nbsp;height:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;the&nbsp;object&nbsp;will&nbsp;levitate&nbsp;to.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+-&nbsp;spacing2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;frames&nbsp;between&nbsp;each&nbsp;keyframe.<br>
+-&nbsp;float:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flag&nbsp;for&nbsp;wether&nbsp;Levitation&nbsp;will&nbsp;be&nbsp;add&nbsp;a&nbsp;float&nbsp;at&nbsp;the&nbsp;top.<br>
+-&nbsp;animated2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flag&nbsp;for&nbsp;wether&nbsp;Levitation&nbsp;will&nbsp;be&nbsp;animated.<br>
+-&nbsp;startFrame3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;CleanUp.<br>
+-&nbsp;endFrame3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;frame&nbsp;of&nbsp;CleanUp.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+-&nbsp;spacing3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;frames&nbsp;between&nbsp;each&nbsp;keyframe.<br>
+-&nbsp;animated3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flag&nbsp;for&nbsp;wether&nbsp;CleanUp&nbsp;will&nbsp;be&nbsp;animated.</tt></dd></dl>
+ <dl><dt><a name="-AnimateWand"><strong>AnimateWand</strong></a>(wandCtrl, wand, curveName, startFrame, endFrame, precision, color1, color2, numParticles, grav, *args)</dt><dd><tt>Animates&nbsp;the&nbsp;wand&nbsp;to&nbsp;the&nbsp;movement&nbsp;of&nbsp;a&nbsp;curve:<br>
+&nbsp;<br>
+-&nbsp;wand:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wand&nbsp;we&nbsp;are&nbsp;animating.<br>
+-&nbsp;curveName:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;curve&nbsp;being&nbsp;used&nbsp;for&nbsp;animtion.<br>
+-&nbsp;startFrame:&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;animation.<br>
+-&nbsp;endFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;frame&nbsp;of&nbsp;animation.<br>
+-&nbsp;precision:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;level&nbsp;of&nbsp;detail&nbsp;that&nbsp;the&nbsp;wand&nbsp;follows&nbsp;the&nbsp;curve.<br>
+-&nbsp;color1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;color&nbsp;of&nbsp;the&nbsp;gradient<br>
+-&nbsp;color2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second&nbsp;color&nbsp;of&nbsp;the&nbsp;gradient<br>
+-&nbsp;numParticles:&nbsp;&nbsp;number&nbsp;of&nbsp;particles&nbsp;for&nbsp;the&nbsp;system&nbsp;to&nbsp;generate&nbsp;persecond<br>
+-&nbsp;grav:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gravity&nbsp;of&nbsp;the&nbsp;nucleus&nbsp;affecting&nbsp;the&nbsp;particles.<br>
+-&nbsp;args:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extra&nbsp;arguments</tt></dd></dl>
+ <dl><dt><a name="-BlastAnimation"><strong>BlastAnimation</strong></a>(wandCtrl, wand, object, wandstFrame, stBeamFrame, endBeamFrame, color1, color2, numParticles, grav)</dt><dd><tt>extension&nbsp;to&nbsp;the&nbsp;wand&nbsp;function.&nbsp;It&nbsp;animates&nbsp;a&nbsp;blast&nbsp;between&nbsp;the&nbsp;wand&nbsp;and&nbsp;the&nbsp;object&nbsp;being&nbsp;affected:<br>
+&nbsp;<br>
+-&nbsp;wandCtrl:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rig&nbsp;control&nbsp;for&nbsp;the&nbsp;wand.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+-&nbsp;wand:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wand&nbsp;the&nbsp;balst&nbsp;is&nbsp;coming&nbsp;from.<br>
+-&nbsp;object:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;the&nbsp;being&nbsp;blasted.<br>
+-&nbsp;wandstFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;the&nbsp;wand&nbsp;animation.<br>
+-&nbsp;startBeamFrame:&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;blast&nbsp;animation.<br>
+-&nbsp;endBeamFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;freame&nbsp;of&nbsp;blast&nbsp;animation.<br>
+-&nbsp;color1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;color&nbsp;of&nbsp;the&nbsp;gradient<br>
+-&nbsp;color2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second&nbsp;color&nbsp;of&nbsp;the&nbsp;gradient<br>
+-&nbsp;numParticles:&nbsp;&nbsp;number&nbsp;of&nbsp;particles&nbsp;for&nbsp;the&nbsp;system&nbsp;to&nbsp;generate&nbsp;persecond<br>
+-&nbsp;grav:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gravity&nbsp;of&nbsp;the&nbsp;nucleus&nbsp;affecting&nbsp;the&nbsp;particles.</tt></dd></dl>
+ <dl><dt><a name="-CancelProc"><strong>CancelProc</strong></a>(win, *args)</dt><dd><tt>Closes&nbsp;the&nbsp;window&nbsp;when&nbsp;'Quit'&nbsp;button&nbsp;is&nbsp;pressed<br>
+&nbsp;<br>
+win:&nbsp;The&nbsp;window&nbsp;we&nbsp;are&nbsp;closing</tt></dd></dl>
+ <dl><dt><a name="-CleanUp"><strong>CleanUp</strong></a>(startFrame, endFrame, spacing, random, offset1, offset2)</dt><dd><tt>Creates&nbsp;an&nbsp;animation&nbsp;for&nbsp;objects&nbsp;poasitions.&nbsp;it&nbsp;takes&nbsp;the&nbsp;initial&nbsp;position&nbsp;of&nbsp;objects<br>
+once&nbsp;the&nbsp;user&nbsp;has&nbsp;moved&nbsp;the&nbsp;objects&nbsp;it&nbsp;animates&nbsp;the&nbsp;objects&nbsp;floating&nbsp;from&nbsp;one&nbsp;point&nbsp;to&nbsp;another<br>
+&nbsp;<br>
+-&nbsp;startFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;levitation.<br>
+-&nbsp;endFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;levitation.<br>
+-&nbsp;spacing:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;frames&nbsp;between&nbsp;each&nbsp;keyframe.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+-&nbsp;random:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random&nbsp;flag&nbsp;to&nbsp;determine&nbsp;wether&nbsp;to&nbsp;use&nbsp;random&nbsp;offsets<br>
+-&nbsp;offset1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lower&nbsp;range&nbsp;of&nbsp;random&nbsp;offset,&nbsp;but&nbsp;also&nbsp;main&nbsp;offset&nbsp;if&nbsp;random&nbsp;i&nbsp;not&nbsp;chosen<br>
+-&nbsp;offset2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upper&nbsp;range&nbsp;of&nbsp;random&nbsp;offset</tt></dd></dl>
+ <dl><dt><a name="-ClearScene"><strong>ClearScene</strong></a>()</dt><dd><tt>Clears&nbsp;everything&nbsp;in&nbsp;the&nbsp;scene&nbsp;for&nbsp;a&nbsp;fresh&nbsp;scene.</tt></dd></dl>
+ <dl><dt><a name="-CreateGradient"><strong>CreateGradient</strong></a>(particleName, color1, color2)</dt><dd><tt>Creates&nbsp;a&nbsp;gradient&nbsp;using&nbsp;two&nbsp;colors&nbsp;and&nbsp;applies&nbsp;it&nbsp;to&nbsp;a&nbsp;particle&nbsp;system<br>
+&nbsp;<br>
+particleName:&nbsp;&nbsp;&nbsp;&nbsp;Particle&nbsp;system&nbsp;were&nbsp;changing&nbsp;the&nbsp;color&nbsp;of<br>
+color1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;color&nbsp;of&nbsp;the&nbsp;gradient<br>
+color2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second&nbsp;color&nbsp;of&nbsp;the&nbsp;gradient</tt></dd></dl>
+ <dl><dt><a name="-CreateMotionPath"><strong>CreateMotionPath</strong></a>(object, startFrame, endFrame, precision)</dt><dd><tt>Generates&nbsp;a&nbsp;motionpath&nbsp;for&nbsp;animated&nbsp;objects.<br>
+The&nbsp;paths&nbsp;generated&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;control&nbsp;the&nbsp;movement&nbsp;of&nbsp;the&nbsp;wand<br>
+if&nbsp;the&nbsp;user&nbsp;decides&nbsp;to&nbsp;use&nbsp;a&nbsp;wand:<br>
+&nbsp;<br>
+&nbsp;-&nbsp;object:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;we&nbsp;are&nbsp;getting&nbsp;the&nbsp;motion&nbsp;path&nbsp;from<br>
+&nbsp;-&nbsp;startFrame:&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;objects&nbsp;existing&nbsp;animation<br>
+&nbsp;-&nbsp;endFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;frame&nbsp;of&nbsp;objects&nbsp;existing&nbsp;animation<br>
+&nbsp;-&nbsp;precision:&nbsp;&nbsp;&nbsp;&nbsp;how&nbsp;precise&nbsp;the&nbsp;curve&nbsp;should&nbsp;be&nbsp;to&nbsp;the&nbsp;animation</tt></dd></dl>
+ <dl><dt><a name="-CreateShader"><strong>CreateShader</strong></a>(shaderType, shaderName, object, number)</dt><dd><tt>this&nbsp;functions&nbsp;creates&nbsp;a&nbsp;shader&nbsp;of&nbsp;specified&nbsp;type:<br>
+&nbsp;<br>
+-&nbsp;shaderType:&nbsp;the&nbsp;type&nbsp;of&nbsp;shader&nbsp;we&nbsp;are&nbsp;creating&nbsp;eg:Lambert,standard&nbsp;surface&nbsp;etc.<br>
+-&nbsp;shaderName:&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;shader.<br>
+-&nbsp;object:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;the&nbsp;shader&nbsp;is&nbsp;being&nbsp;applied&nbsp;to.<br>
+-&nbsp;number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;shader&nbsp;number&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;its&nbsp;name&nbsp;to&nbsp;avoid&nbsp;clashing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;existing&nbsp;shaders&nbsp;of&nbsp;the&nbsp;same&nbsp;type.<br>
+&nbsp;<br>
+&nbsp;Return&nbsp;Value:<br>
+-&nbsp;returns&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;shader</tt></dd></dl>
+ <dl><dt><a name="-CreateUI"><strong>CreateUI</strong></a>()</dt><dd><tt>Creates&nbsp;The&nbsp;UI&nbsp;for&nbsp;the&nbsp;program.</tt></dd></dl>
+ <dl><dt><a name="-GetObjCoordArray"><strong>GetObjCoordArray</strong></a>(flag)</dt><dd><tt>this&nbsp;funtion&nbsp;fills&nbsp;up&nbsp;a&nbsp;global&nbsp;dictionary&nbsp;that&nbsp;is&nbsp;used&nbsp;to&nbsp;animate&nbsp;the&nbsp;floating&nbsp;cleanup&nbsp;function.<br>
+&nbsp;<br>
+-&nbsp;flag:&nbsp;&nbsp;Used&nbsp;to&nbsp;determine&nbsp;what&nbsp;values&nbsp;to&nbsp;save&nbsp;into&nbsp;the&nbsp;dictionary&nbsp;can&nbsp;either&nbsp;be&nbsp;'source'&nbsp;or&nbsp;'destination'</tt></dd></dl>
+ <dl><dt><a name="-GetObjPos"><strong>GetObjPos</strong></a>(objName)</dt><dd><tt>Gets&nbsp;the&nbsp;position&nbsp;of&nbsp;an&nbsp;object&nbsp;and&nbsp;returns&nbsp;it&nbsp;as&nbsp;a&nbsp;list:<br>
+&nbsp;<br>
+-&nbsp;objName:&nbsp;the&nbsp;object&nbsp;we&nbsp;are&nbsp;getting&nbsp;the&nbsp;pos&nbsp;of.<br>
+&nbsp;<br>
+&nbsp;Return&nbsp;Value:<br>
+-&nbsp;objScale:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;of&nbsp;object&nbsp;xyz&nbsp;pos</tt></dd></dl>
+ <dl><dt><a name="-GetObjSize"><strong>GetObjSize</strong></a>(objName)</dt><dd><tt>Gets&nbsp;the&nbsp;size&nbsp;of&nbsp;an&nbsp;object&nbsp;and&nbsp;returns&nbsp;it&nbsp;as&nbsp;a&nbsp;list:<br>
+&nbsp;<br>
+-&nbsp;objName:&nbsp;the&nbsp;object&nbsp;we&nbsp;are&nbsp;getting&nbsp;the&nbsp;size&nbsp;of.<br>
+&nbsp;<br>
+Return&nbsp;Value:<br>
+-&nbsp;objScale:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;of&nbsp;object&nbsp;xyz&nbsp;scales</tt></dd></dl>
+ <dl><dt><a name="-GetParentNode"><strong>GetParentNode</strong></a>(selectedObject)</dt><dd><tt>Gets&nbsp;the&nbsp;parent&nbsp;Node&nbsp;for&nbsp;every&nbsp;object&nbsp;in&nbsp;the&nbsp;list<br>
+-&nbsp;selectedObject:&nbsp;&nbsp;List&nbsp;of&nbsp;objects&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;Values:<br>
+-&nbsp;object:&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;Parent&nbsp;nodes</tt></dd></dl>
+ <dl><dt><a name="-ImportWand"><strong>ImportWand</strong></a>(wand)</dt><dd><tt>This&nbsp;function&nbsp;imports&nbsp;a&nbsp;wand&nbsp;selected&nbsp;by&nbsp;the&nbsp;user.&nbsp;Importing&nbsp;a&nbsp;wand&nbsp;also&nbsp;lets&nbsp;users&nbsp;create&nbsp;wand&nbsp;animations:<br>
+&nbsp;<br>
+-&nbsp;wand:&nbsp;name/type&nbsp;of&nbsp;wand&nbsp;being&nbsp;imported.</tt></dd></dl>
+ <dl><dt><a name="-ParticleEmitter"><strong>ParticleEmitter</strong></a>(numOfParticles, grav, object, color1, color2)</dt><dd><tt>funtion&nbsp;that&nbsp;creates&nbsp;creates&nbsp;creates&nbsp;and&nbsp;initialises&nbsp;and&nbsp;emiiter.<br>
+&nbsp;<br>
+-&nbsp;numOfParticles:&nbsp;number&nbsp;of&nbsp;particles&nbsp;for&nbsp;the&nbsp;system&nbsp;to&nbsp;generate&nbsp;persecond.<br>
+-&nbsp;grav:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gravity&nbsp;of&nbsp;the&nbsp;nucleus&nbsp;affecting&nbsp;the&nbsp;particles.<br>
+-&nbsp;object:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;object&nbsp;being&nbsp;used&nbsp;as&nbsp;an&nbsp;emiiter.&nbsp;if&nbsp;this&nbsp;argument&nbsp;is&nbsp;false&nbsp;and&nbsp;emitter&nbsp;is&nbsp;created&nbsp;and&nbsp;returned.<br>
+&nbsp;<br>
+Return&nbsp;Values:<br>
+-&nbsp;particles:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;od&nbsp;nparticles&nbsp;nodes<br>
+-&nbsp;emitSphere:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;of&nbsp;sphere&nbsp;node</tt></dd></dl>
+ <dl><dt><a name="-SetProjectKey"><strong>SetProjectKey</strong></a>(shader, startFrame, endFrame)</dt><dd><tt>Sets&nbsp;the&nbsp;transmission&nbsp;attributte&nbsp;for&nbsp;a&nbsp;shader<br>
+from&nbsp;0&nbsp;to&nbsp;1&nbsp;or&nbsp;1&nbsp;to&nbsp;0&nbsp;for&nbsp;a&nbsp;specific&nbsp;time&nbsp;frame:<br>
+&nbsp;<br>
+-&nbsp;shader:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shader&nbsp;we&nbsp;are&nbsp;changing&nbsp;the&nbsp;transmission&nbsp;on.&nbsp;<br>
+-&nbsp;startFrame:&nbsp;&nbsp;&nbsp;first&nbsp;keyframe&nbsp;of&nbsp;the&nbsp;transmission.<br>
+-&nbsp;endFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last&nbsp;keyframe&nbsp;of&nbsp;the&nbsp;transmision.</tt></dd></dl>
+ <dl><dt><a name="-SetScaleKey"><strong>SetScaleKey</strong></a>(object, startFrame, endFrame, scalefactor)</dt><dd><tt>Sets&nbsp;the&nbsp;scale&nbsp;attributte&nbsp;for&nbsp;an&nbsp;object&nbsp;for&nbsp;a&nbsp;specific&nbsp;time&nbsp;frame.<br>
+&nbsp;<br>
+-&nbsp;object:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;being&nbsp;scaled.&nbsp;<br>
+-&nbsp;startFrame:&nbsp;&nbsp;&nbsp;first&nbsp;keyframe&nbsp;of&nbsp;the&nbsp;scaling..<br>
+-&nbsp;endFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last&nbsp;keyframe&nbsp;of&nbsp;the&nbsp;scaling..<br>
+-&nbsp;scalefactor:&nbsp;&nbsp;number&nbsp;original&nbsp;object&nbsp;is&nbsp;multiplied&nbsp;by.</tt></dd></dl>
+ <dl><dt><a name="-SetVisibleKey"><strong>SetVisibleKey</strong></a>(object, startFrame, endFrame)</dt><dd><tt>Sets&nbsp;the&nbsp;visibility&nbsp;attributte&nbsp;for&nbsp;an&nbsp;object.<br>
+from&nbsp;0&nbsp;to&nbsp;1&nbsp;or&nbsp;1&nbsp;to&nbsp;0&nbsp;for&nbsp;a&nbsp;specific&nbsp;time&nbsp;frame.<br>
+&nbsp;<br>
+-&nbsp;object:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;we&nbsp;are&nbsp;changing&nbsp;the&nbsp;visibility&nbsp;on.&nbsp;<br>
+-&nbsp;startFrame:&nbsp;&nbsp;&nbsp;first&nbsp;keyframe&nbsp;of&nbsp;the&nbsp;visibilty.<br>
+-&nbsp;endFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last&nbsp;keyframe&nbsp;of&nbsp;the&nbsp;visibilty.</tt></dd></dl>
+ <dl><dt><a name="-ShrinkGrow"><strong>ShrinkGrow</strong></a>(object, startFrame, endFrame, scaleFactor, projectionSize, spacing, random, offset1, offset2)</dt><dd><tt>shrinks&nbsp;or&nbsp;grows&nbsp;the&nbsp;size&nbsp;of&nbsp;an&nbsp;object:<br>
+&nbsp;<br>
+-&nbsp;object:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;being&nbsp;shrunk/grown.<br>
+-&nbsp;scalefactor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;original&nbsp;object&nbsp;is&nbsp;multiplied&nbsp;by.<br>
+-&nbsp;projectionSize:&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;of&nbsp;the&nbsp;projection&nbsp;effect.<br>
+-&nbsp;spacing:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;frames&nbsp;between&nbsp;each&nbsp;keyframe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+-&nbsp;random:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random&nbsp;flag&nbsp;to&nbsp;determine&nbsp;wether&nbsp;to&nbsp;use&nbsp;random&nbsp;offsets<br>
+-&nbsp;offset1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lower&nbsp;range&nbsp;of&nbsp;random&nbsp;offset,&nbsp;but&nbsp;also&nbsp;main&nbsp;offset&nbsp;if&nbsp;random&nbsp;i&nbsp;not&nbsp;chosen<br>
+&nbsp;-offset2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upper&nbsp;range&nbsp;of&nbsp;random&nbsp;offset</tt></dd></dl>
+ <dl><dt><a name="-SnapToPos"><strong>SnapToPos</strong></a>(wand, object, *args)</dt><dd><tt>Snaps&nbsp;an&nbsp;objects&nbsp;local&nbsp;x&nbsp;axis&nbsp;to&nbsp;the&nbsp;position&nbsp;and&nbsp;angle&nbsp;of&nbsp;another&nbsp;object.<br>
+&nbsp;<br>
+-&nbsp;wand:&nbsp;object&nbsp;that&nbsp;we&nbsp;are&nbsp;snapping/rotating.<br>
+-&nbsp;object:&nbsp;object&nbsp;we&nbsp;are&nbsp;snapping&nbsp;to.</tt></dd></dl>
+ <dl><dt><a name="-frameCalc"><strong>frameCalc</strong></a>(stf, enf)</dt><dd><tt>calculates&nbsp;the&nbsp;total&nbsp;number&nbsp;of&nbsp;frames&nbsp;for&nbsp;an&nbsp;animation.<br>
+&nbsp;<br>
+-&nbsp;stf:&nbsp;starting&nbsp;frame.<br>
+-&nbsp;enf:&nbsp;ending&nbsp;frame.<br>
+&nbsp;<br>
+Return&nbsp;Values:<br>
+nFrames:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;total&nbsp;number&nbsp;of&nbsp;frames&nbsp;between&nbsp;stf&nbsp;and&nbsp;enf</tt></dd></dl>
+ <dl><dt><a name="-levitation"><strong>levitation</strong></a>(object, startFrame, endFrame, floatPercentage, height, spacing, float, random, offset1, offset2)</dt><dd><tt>animates&nbsp;an&nbsp;object&nbsp;levitating:<br>
+&nbsp;<br>
+-&nbsp;object:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;being&nbsp;levitated.<br>
+-&nbsp;startFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;levitation.<br>
+-&nbsp;endFrame:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;frame&nbsp;of&nbsp;levitation.<br>
+-&nbsp;floatPercentage:&nbsp;&nbsp;&nbsp;percentage&nbsp;of&nbsp;frames&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;floating.<br>
+-&nbsp;height:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;the&nbsp;object&nbsp;will&nbsp;levitate&nbsp;to.<br>
+-&nbsp;spacing:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;frames&nbsp;between&nbsp;each&nbsp;keyframe.<br>
+-&nbsp;float:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag&nbsp;that&nbsp;determines&nbsp;wether&nbsp;the&nbsp;object&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;float&nbsp;in&nbsp;place&nbsp;at&nbsp;the&nbsp;desired&nbsp;height.<br>
+-&nbsp;random:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random&nbsp;flag&nbsp;to&nbsp;determine&nbsp;wether&nbsp;to&nbsp;use&nbsp;random&nbsp;offsets<br>
+-&nbsp;offset1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lower&nbsp;range&nbsp;of&nbsp;random&nbsp;offset,&nbsp;but&nbsp;also&nbsp;main&nbsp;offset&nbsp;if&nbsp;random&nbsp;i&nbsp;not&nbsp;chosen<br>
+&nbsp;-offset2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upper&nbsp;range&nbsp;of&nbsp;random&nbsp;offset</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>filePath</strong> = r'David_Owairu_Scripting\src\'<br>
+<strong>name</strong> = '__version__'<br>
+<strong>objCoordDict</strong> = OrderedDict()<br>
+<strong>submission_Path</strong> = r'\home\xyang\maya_scripts\submission'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">David&nbsp;Owairu</td></tr></table>
+</body></html>

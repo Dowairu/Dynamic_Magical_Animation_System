@@ -1,158 +1,51 @@
-﻿
 
 **Manual**
 
 **How to run the script**
 
-Before running the script, line 27 and 28 should be changed to the user’s directory. If the user wants to create wand
+Before running the script, line 27 and 28 should be changed to the user’s directory. If the user wants to create wand animations, they can import one of four pre-sets provided or make use of their rigged model, making sure that they enter the name of their wand control into the UI.
 
-animations, they can import one of four pre-sets provided or make use of their rigged model, making sure that they
-
-enter the name of their wand control into the UI.
-
-A wand is not needed to use the program. Each magical effect has a select button to select an object to be animated.
-
-If the user wants to animate a specific object, they can select it directly. To animate a group of objects, the user must
-
-keep the objects they want animated visible and everything else hidden.
+A wand is not needed to use the program. Each magical effect has a select button to select an object to be animated. If the user wants to animate a specific object, they can select it directly. To animate a group of objects, the user must keep the objects they want animated visible and everything else hidden.
 
 **How to Use the UI**
-
 The UI is explained in the video titled “UI Explanation” in the artefacts folder.
 
 **Algorithm/Design**
+The overall design of this program is simple. Most of it involved solving minor problems and combining them to make a more complicated system. I developed an algorithm for each magical effect, then added functionality for stacking and combination of animations. My program is based on six core procedures.
 
-The overall design of this program is simple. Most of it involved solving minor problems and combining them to
+AnimateWand – This function makes use of vectors to animate the wand along the curve. First, we rebuild the curve, so the number of points matches the number of frames for the animation. Then we check for the animate beam. If the option is chosen by the user there are a few extra steps. Before going through the loop, we add some extra points to the curve. The position of this added point is the same as the position of the object, the wand blasting/beaming. This way the wand animation will end pointing at the object. Then we enter a loop, starting from the first point.
+- We the Get position of the point on the curve.
+- Then we align the wand to the point. To align these two things, we get the position of the point and find the angle between the wands position vector and the curve points position vector. Then rotate our wand accordingly.
+- Once rotated, we set the rotation keyframes. And go through the loop until the last point on the curve.
 
-make a more complicated system. I developed an algorithm for each magical effect, then added functionality for
+BeamBlastAnimation – Animates a nparticle emitter along a path from a wand to a chosen object. This function is embedded within the wand animation function and only runs if the animate beam option is chosen by the user.
 
-stacking and combination of animations. My program is based on six core procedures.
-
-AnimateWand – This function makes use of vectors to animate the wand along the curve. First, we rebuild the curve,
-
-so the number of points matches the number of frames for the animation. Then we check for the animate beam. If
-
-the option is chosen by the user there are a few extra steps. Before going through the loop, we add some extra
-
-points to the curve. The position of this added point is the same as the position of the object, the wand
-
-blasting/beaming. This way the wand animation will end pointing at the object. Then we enter a loop, starting from
-
-the first point.
-
-•
-
-•
-
-We the Get position of the point on the curve.
-
-Then we align the wand to the point. To align these two things, we get the position of the point and find the
-
-angle between the wands position vector and the curve points position vector. Then rotate our wand
-
-accordingly.
-
-•
-
-Once rotated, we set the rotation keyframes. And go through the loop until the last point on the curve.
-
-BeamBlastAnimation – Animates a nparticle emitter along a path from a wand to a chosen object. This function is
-
-embedded within the wand animation function and only runs if the animate beam option is chosen by the user.
-
-~~First, we check w~~hat type of object we are blasting. If the object is a curve, we just duplicate the original curve and
-
+First, we check what type of object we are blasting. If the object is a curve, we just duplicate the original curve and
 animated our emitter along with it. If it is any other object or group of objects, we.
+- Point the wand to the object.
+- Get the position of the tip of the wand.
+- Create a curve starting at the wand tip and ending at the object’s position.
+- Create our emitter with the users’ particles settings.
+- Animate the emitter along this curve.
+- Group everything to keep the outliner clean.
 
-•
+ShrinkGrow – Animates an object shrinking or growing. The first thing we do in this function calculates the number of projections (loops). This is determined by the total number of frames divided by the spacing provided by the user. Then we use the number of projections for the loop.
+- Calculate the frame we should be on using the start frame of the animation and loop increment.
+- Duplicate object.
+- Create and assign a shader to duplicated object.
+- Set keys on the scale of the duplicated object.
+- Set keys on the transmission of duplicated objects shader.
 
-•
+- Set keys on duplicated objects visibility.
 
-•
-
-•
-
-•
-
-•
-
-Point the wand to the object.
-
-Get the position of the tip of the wand.
-
-Create a curve starting at the wand tip and ending at the object’s position.
-
-Create our emitter with the users’ particles settings.
-
-Animate the emitter along this curve.
-
-Group everything to keep the outliner clean.
-
-ShrinkGrow – Animates an object shrinking or growing. The first thing we do in this function calculates the number
-
-of projections (loops). This is determined by the total number of frames divided by the spacing provided by the user.
-
-Then we use the number of projections for the loop.
-
-•
-
-•
-
-•
-
-•
-
-Calculate the frame we should be on using the start frame of the animation and loop increment.
-
-Duplicate object.
-
-Create and assign a shader to duplicated object.
-
-Set keys on the scale of the duplicated object.
-
-
-
-
-
-•
-
-•
-
-Set keys on the transmission of duplicated objects shader.
-
-Set keys on duplicated objects visibility.
-
-Levitation- Animates an object levitating upwards with an option to make it float in place. First, we determine if the
-
-user has chosen the “float” tag. If they have, we calculate the number of frames to be used for levitating and the
-
-number of frames to be used for floating. Then we proceed with the algorithm.
-
-•
-
-•
-
-•
-
-•
-
-Get object position.
-
-Add random values between 0 and 1 to x position and z position.
-
-Calculate the height increment for the current frame and add it to the y position.
-
-Set keyframes on all translation values.
-
+Levitation- Animates an object levitating upwards with an option to make it float in place. First, we determine if the user has chosen the “float” tag. If they have, we calculate the number of frames to be used for levitating and the number of frames to be used for floating. Then we proceed with the algorithm.
+- Get object position.
+- Add random values between 0 and 1 to x position and z position.
+- Calculate the height increment for the current frame and add it to the y position.
+- Set keyframes on all translation values.
 If the float tag is true
-
-•
-
-•
-
-Add random values between 0 and 1 to x position and z position.
-
-Set keyframes on all translation values.
+- Add random values between 0 and 1 to x position and z position.
+- Set keyframes on all translation values.
 
 CleanUp – Animates an object or group of objects moving from one position to another. This is quite simple, the
 
@@ -160,80 +53,57 @@ more complicated part comes with the method of storing these values before acces
 
 function is dynamically storing the starting and ending positions of objects in a dictionary. The dictionary is like this,
 
-key=objectName, value = [[starting positions] [ending positions]]. The rest of the function is just accessing these
+key=objectName, value = [[starting positions] [ending positions]]. The rest of the function is just accessing these values using generated lists, then interpolating between the start and end positions with added random values and setting keyframes of translation.
 
-values using generated lists, then interpolating between the start and end positions with added random values and
-
-setting keyframes of translation.
-
-ParticleEmitter – Creates a surface emitter from the provided object or generates one if no object is given.
-
-There are quite a few functions I created to bridge the gaps between these functions and create a fully functional
-
-program. I made many functions that I have classed as “utility” functions, designed to make certain things easier and
-
-eliminate unnecessary lines of code that would have been in several places. Here the most popular ones.
-
-•
-
-•
-
-•
-
-FrameCalc – calculates the total number of frames for animation.
-
-GetObjPos – gets the current position of an object and returns the value in a list of XYZ positions.
-
-SnapToPos – points the front normal of an object to the position of another object.
+ParticleEmitter – Creates a surface emitter from the provided object or generates one if no object is given. There are quite a few functions I created to bridge the gaps between these functions and create a fully functional program. I made many functions that I have classed as “utility” functions, designed to make certain things easier and eliminate unnecessary lines of code that would have been in several places. Here the most popular ones.
+- FrameCalc – calculates the total number of frames for animation.
+- GetObjPos – gets the current position of an object and returns the value in a list of XYZ positions.
+- SnapToPos – points the front normal of an object to the position of another object.
 
 **Script structure.**
-
 Here is a diagram showing the script structure and flow control of my program.
 
+<img
+  src="images/program_flow.png"
+alt="program flow"
+title="program flow"
+width=96% height=96% />
 
-
-
-
-The Program starts with CreateUI in the Main function. Once the user has chosen all their settings and clicks execute,
-
-all the relevant values are sent to AnimManager. Dependent on the options chosen by the user if statements are
-
-used to decide which functions to run. Within each function, there are further if statements to check for other values
-
-and options. Once all things have been checked, the function will run the required code. All core functions run in a
-
-nested for loop, they run the commands for every object selected.
+The Program starts with CreateUI in the Main function. Once the user has chosen all their settings and clicks execute, all the relevant values are sent to AnimManager. Dependent on the options chosen by the user if statements are used to decide which functions to run. Within each function, there are further if statements to check for other values and options. Once all things have been checked, the function will run the required code. All core functions run in a nested for loop, they run the commands for every object selected.
 
 **Improvements**
+The first improvement I would have been the wand function. I would have given it more functionality, making it follow an object even after animating to mimic the user actively manipulating an object.
 
-The first improvement I would have been the wand function. I would have given it more functionality, making it
-
-follow an object even after animating to mimic the user actively manipulating an object.
-
-I would also have added a transformation/shapeshifting/morphing function. My first attempt at this using linear
-
-interpolation of the position of vertices did not work very well. I would like to add such functionality using
-
-techniques like mesh registration or mesh reconstruction from a point cloud. The last thing I would improve about
-
-my program is the programming. I would have liked to implement the use of Object-oriented programming
-
-techniques where necessary.
+I would also have added a transformation/shapeshifting/morphing function. My first attempt at this using linear interpolation of the position of vertices did not work very well. I would like to add such functionality using techniques like mesh registration or mesh reconstruction from a point cloud. The last thing I would improve about my program is the programming. I would have liked to implement the use of Object-oriented programming techniques where necessary.
 
 **Visual Artefacts**
-
-Because my project is based on animation, my visual artefacts are in video form. They are in the visual artefacts
-
-folder of the project. All settings are shown in the videos and objects used are also provided.
+Because my project is based on animation, my visual artefacts are in video form. They are in the visual artefacts folder of the project. All settings are shown in the videos and objects used are also provided.
 
 
+<img
+  src="images/Chairs.gif"
+alt="Chairs"
+title="Chairs"
+width=96% height=96% />
+<img
+  src="images/Floating_Spoons.gif"
+alt="Floating_Spoons"
+title="Floating_Spoons"
+width=96% height=96% />
+<img
+  src="images/Magic_Potion.gif"
+alt="Magic_Potion"
+title="Magic_Potion"
+width=96% height=96% />
+<img
+  src="images/Shrinking_Skull.gif"
+alt="Shrinking_Skull"
+title="Shrinking_Skull"
+width=96% height=96% />
 
 
-
-##Python Modules and Functions
-*genrated with pydoc and converted to md*
-
-David Magical Animation System:  
+# Python Modules and Functions
+## Dynamic Magical Animation System:  
    
 This program is designed to create procedural animations using different simple algorithms.  
 it takes an object or group of objects as input and applies a selected animation onto them.   
@@ -242,18 +112,9 @@ The animations can also be stacked so that a user can perform multiu
    
 **Modules**
 
-      
-
- 
-
 [random](random.html)  
 
-   
 **Functions**
-
-      
-
- 
 
 **AnimManager**(wandPrecision, curveName, wandStartFrame, wandEndFrame, wandCtrl, wand, beamEndFrame, animateWand, animateBeam, numOfParticlesControl, gravityControl, color1, color2, objParticles, random, animOffset1, animOffset2, startFrame1, endFrame1, scaleFactor, projectionSize, spacing1, animated1, startFrame2, endFrame2, floatPercentage, height, spacing2, float, animated2, startFrame3, endFrame3, spacing3, animated3, \*pArgs)
 
@@ -505,24 +366,6 @@ animates an object levitating:
 \- random:            random flag to determine wether to use random offsets  
 \- offset1:           lower range of random offset, but also main offset if random i not chosen  
  -offset2:           upper range of random offset
-
-   
-**Data**
-
-      
-
- 
-
-**filePath** = r'David\_Owairu\_Scripting\\src\\'  
-**name** = '\_\_version\_\_'  
-**objCoordDict** = OrderedDict()  
-**submission\_Path** = r'\\home\\xyang\\maya\_scripts\\submission'
-
-   
+ 
 **Author**
-
-      
-
- 
-
 David Owairu
